@@ -1,9 +1,9 @@
 #code goes here
 class Door
   def initialize(color, size, status="Cerrado")
-    @color = color
-    @size = size
-    @status = status
+    @color = color  #variable de instancia.
+    @size = size  #variable de instancia.
+    @status = status  #variable de instancia.
   end
 #getter
   def color
@@ -25,19 +25,29 @@ class Door
     def size
       @size
     end
-#getter  comportamiento
+
+#comportamiento
+#Si status de door cerrado = Defualt return "Business is closed"
+#Si status de door es Abierto = return "open @color door"
   def open
-    "Business is closed"
+    #("Business is closed" or "open #{@color} door") = @status ? "Cerrado" : "Abierto";
+    if @status == "Cerrado"
+      "Business is closed"
+    else
+      "open #{@color} door"
+    end
   end
-  #setter comportamiento
-  def open=(status)
-    "open red door"
-  end
-#getter comportamiento
+#comportamiento
+#Si @status de door es "Cerrado" = Default return "Door is closed"
+#Si @status de door es "Abierto" return "close door of 5 meters"
   def close
-    @close
-    "Door is closed"
+    if @status == "Cerrado"
+      "Door is closed"
+    else
+      "close door of #{@size} meters" #interpolar
+    end
   end
+
   #getter
   def status
     @status
@@ -48,14 +58,14 @@ class Door
   end
 end
 
-# door_1 = Door.new("green", 5)
+#door_1 = Door.new("green", 5)
 # p door_1.color
 #
 # p door_1.size
 # #=> 5
 # p door_1.status
 # #=> "Cerrado"
-# p door_1.open
+#p door_1.open
 # #=> "Business is closed"
 # p door_1.close
 # #=> "Door is closed"
