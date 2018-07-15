@@ -1,6 +1,6 @@
 #code goes here
 class Door
-  def initialize(color, size, status="Cerrado")
+  def initialize(color, size, status="Cerrado")#status saignar parametro por default
     @color = color  #variable de instancia.
     @size = size  #variable de instancia.
     @status = status  #variable de instancia.
@@ -30,22 +30,25 @@ class Door
 #Si status de door cerrado = Defualt return "Business is closed"
 #Si status de door es Abierto = return "open @color door"
   def open
-    #("Business is closed" or "open #{@color} door") = @status ? "Cerrado" : "Abierto";
-    if @status == "Cerrado"
-      "Business is closed"
-    else
-      "open #{@color} door"
-    end
+     @status == "Abierto" ? "open #{@color} door" : "Business is closed" ; #operador ternario
+
+    # if @status == "Cerrado"
+    #   "Business is closed"
+    # else
+    #   "open #{@color} door"
+    # end
   end
 #comportamiento
 #Si @status de door es "Cerrado" = Default return "Door is closed"
 #Si @status de door es "Abierto" return "close door of 5 meters"
   def close
-    if @status == "Cerrado"
-      "Door is closed"
-    else
-      "close door of #{@size} meters" #interpolar
-    end
+    @status == "Abierto" ? "close door of #{@size} meters" : "Door is closed"; #operador ternario
+
+    # if @status == "Cerrado"
+    #   "Door is closed"
+    # else
+    #   "close door of #{@size} meters" #interpolar
+    # end
   end
 
   #getter
